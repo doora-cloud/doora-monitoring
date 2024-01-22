@@ -74,12 +74,6 @@ services:
     depends_on:
       exporter:
         condition: service_started
-    healthcheck:
-      test: ["CMD", "wget", "http://localhost:9090"]
-      interval: 10s
-      timeout: 15s
-      retries: 10
-      start_period: 40s
     deploy:
       resources:
         limits:
