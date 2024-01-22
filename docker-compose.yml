@@ -4,6 +4,7 @@ services:
   grafana:
     image: grafana/grafana-oss:latest
     restart: always
+    user: root
     environment:
       GF_SERVER_DOMAIN: ${GRAFANA_URL}
       GF_SERVER_ROOT_URL: https://${GRAFANA_URL}
@@ -56,6 +57,7 @@ services:
   prometheus:
     image: prom/prometheus:latest
     restart: always
+    user: root
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
